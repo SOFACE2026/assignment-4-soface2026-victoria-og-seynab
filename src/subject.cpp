@@ -10,6 +10,13 @@ void Subject::attach(Observer *subscriber)
 // Implement this (Observer part)
 void Subject::detach(Observer *subscriber)
 {
+    // removes the observer from the list of subscribers
+    for(auto it = subscribers.begin(); it != subscribers.end(); ++it){
+        if(*it == subscriber){
+            subscribers.erase(it); // removes the observer
+            break; // exit the loop after removing the observer
+        }
+    }
 }
 
 // Implement this (Observer part)
